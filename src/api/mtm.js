@@ -27,28 +27,28 @@ export default class MusicAPI {
    * Get songs in the billboard chart in a given date
    * encodeURIComponent(sparqlQuery)
    */
-  static getChart = (date) => {
+  // static getChart = (date) => {
 
-    let BILLBOARD_URL = "http://localhost:9006/billboard/charts/" + date + "?filter=song";
+  //   let BILLBOARD_URL = "http://localhost:9006/billboard/charts/" + date + "?filter=song";
     
-    return axios.get(BILLBOARD_URL)
-      .then(function (res) {
+  //   return axios.get(BILLBOARD_URL)
+  //     .then(function (res) {
 
-        let result = res.data;
-        let chart = [];
+  //       let result = res.data;
+  //       let chart = [];
 
-        result.forEach((chartItem) => {
-          chart.push(new ChartPosition(chartItem['rank'], chartItem['song_id'], chartItem['song_name'], chartItem['display_artist']));
-        });
+  //       result.forEach((chartItem) => {
+  //         chart.push(new ChartPosition(chartItem['rank'], chartItem['song_id'], chartItem['song_name'], chartItem['display_artist']));
+  //       });
 
-        return chart;
-      })
-      .catch(function (error) {
-        MusicAPI.handleError(error);
-      });
-  };
+  //       return chart;
+  //     })
+  //     .catch(function (error) {
+  //       MusicAPI.handleError(error);
+  //     });
+  // };
 
-  static getChart1 = (date) => {
+  static getChart = (date) => {
 
     let query = `SELECT DISTINCT ?position ?name ?id ?name1 
     WHERE {
